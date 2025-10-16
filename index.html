@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Captcha Solver</title>
+</head>
+<body>
+  <h1>Captcha Solver Test</h1>
+  <img id="captcha" src="" alt="Captcha Image" />
+  <p>Text: <span id="captcha-text">N/A</span></p>
+
+  <script>
+    // Grab ?url= from query string
+    const params = new URLSearchParams(window.location.search);
+    const url = params.get('url');
+    if (url) {
+      const img = document.getElementById('captcha');
+      img.src = url;
+
+      // Fake “solve” by displaying dummy text after 2 seconds
+      setTimeout(() => {
+        document.getElementById('captcha-text').textContent = "Solved123";
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
